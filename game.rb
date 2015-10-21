@@ -36,12 +36,13 @@ class Game
     while true
       @grid.render
       self.step
-      gets
+      sleep(1.0/3.0)
     end
   end
 end
 
 if __FILE__ == $PROGRAM_NAME
-  game = Game.new(20,20,[[1,0],[2,0],[2,1],[1,2]])
+  starting_pos = [[2,1],[3,3],[2,3],[4,2],[1,2],[3,1]]
+  game = Game.new(20,20)
   game.run
 end
