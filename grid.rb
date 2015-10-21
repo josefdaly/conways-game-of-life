@@ -39,7 +39,7 @@ class Grid
   def move_cursor
     input = ""
     until input == "\r"
-      render
+      render(true)
       input = STDIN.getch
       @cursor_pos[1] += 1 if input == 'k'
       @cursor_pos[1] -= 1 if input == 'i'
@@ -53,7 +53,7 @@ class Grid
     @grid[pos.last][pos.first]
   end
 
-  def render
+  def render(selector = false)
     system('clear')
     @grid.each_with_index do |row, y|
       row.each_with_index do |cell, x|
@@ -66,6 +66,10 @@ class Grid
         end
       end
       puts
+    end
+    if selector
+      puts "I, J, K, L to move. Enter to select starting cells."
+      puts "When complete, move cursor offscreen and press enter."
     end
   end
 

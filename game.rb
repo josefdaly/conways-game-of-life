@@ -14,7 +14,6 @@ class Game
       (0...@width).each do |x|
         cell = @grid[[x,y]]
         live_neighbors = cell.living_neighbors
-
         if cell.alive?
           if live_neighbors < 2 || live_neighbors > 3
             cells_to_kill.push(cell)
