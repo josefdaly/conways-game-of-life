@@ -23,9 +23,9 @@ class Game
         end
       end
     end
-    
-    [:kill, :animate].each do |action|
-      self.do_to_group(cells_to_kill, action)
+
+    [[cells_to_kill, :kill], [cells_to_animate, :animate]].each do |action_group|
+      self.do_to_group(action_group.first, action_group.last)
     end
   end
 
@@ -44,6 +44,6 @@ end
 
 if __FILE__ == $PROGRAM_NAME
   starting_pos = [[2,1],[3,3],[2,3],[4,2],[1,2],[3,1]]
-  game = Game.new(30,60, starting_pos)
+  game = Game.new(30,60)
   game.run
 end
