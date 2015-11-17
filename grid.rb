@@ -60,7 +60,7 @@ class Grid
         if [x,y] == @cursor_pos
           print '  '.colorize(background: :yellow)
         elsif cell.alive?
-          print '  '.colorize(background: :green)
+          print '  '.colorize(background: :red)
         else
           print '  '.colorize(background: :black)
         end
